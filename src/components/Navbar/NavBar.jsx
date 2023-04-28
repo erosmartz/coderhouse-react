@@ -1,162 +1,124 @@
 /* REACT */
 
-import * as React from 'react';
-import { Link } from "react-router-dom"
+import * as React from "react";
+import { Link } from "react-router-dom";
 
 /* MUI */
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
-
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import CardMedia from "@mui/material/CardMedia";
 
 /* PROJECT */
-import CartWidget from "../CartWidget/CartWidget"
-import CategoryMenu from "../CategoryMenu/CategoryMenu"
-
-
+import CartWidget from "../CartWidget/CartWidget";
+import CategoryMenu from "../CategoryMenu/CategoryMenu";
 
 const Navbar = () => {
+  const logo =
+    "https://firebasestorage.googleapis.com/v0/b/steam-arg.appspot.com/o/logo.png?alt=media&token=c00b53ee-bdb3-4fb3-bf18-1bd7489e3da2";
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
 
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-    
   const pages = [
     {
-      route:'/about', 
-      name:'Acerca de'
-    }
+      route: "/about",
+      name: "Acerca de",
+    },
   ];
 
   return (
-    <AppBar position="sticky" sx={{ mb: 3}}>
+    <AppBar position="sticky" sx={{ mb: 3 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <SportsEsportsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.2rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            STEAM-ARG
-          </Typography>
+          <Link to="/">
+            <CardMedia
+              component="img"
+              sx={{ height: "60px" }}
+              image={logo}
+              alt="STEAM-ARG"
+            />
+          </Link>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="categories"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
-            >
+              color="inherit">
               <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              
-              {pages.map( (page) => {
+                display: { xs: "block", md: "none" },
+              }}>
+              <CategoryMenu />
+              {pages.map((page) => {
                 return (
-                  <MenuItem key={page.route} onClick={handleCloseNavMenu}>
-                    <Link to={page.route} style={{textDecoration: "none"}}>
-                      <Typography textAlign="center">{page.name}</Typography>
-                      
-                    </Link>
-                  </MenuItem>
-                  )
-                })}
-              
+                  <Link
+                    to={page.route}
+                    key={page.route}
+                    style={{ textDecoration: "none" }}>
+                    <Button
+                      onClick={handleCloseNavMenu}
+                      sx={{ my: 2, color: "white", display: "block" }}>
+                      {page.name}
+                    </Button>
+                  </Link>
+                );
+              })}
             </Menu>
           </Box>
-          <SportsEsportsIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            STEAM-ARG
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <CategoryMenu/>
+
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <CategoryMenu />
             {pages.map((page) => {
-              return(
-                <Link to={page.route} key={page.route} style={{textDecoration: "none"}}>
-                <Button
-                
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-                >
-                  
+              return (
+                <Link
+                  to={page.route}
+                  key={page.route}
+                  style={{ textDecoration: "none" }}>
+                  <Button
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: "white", display: "block" }}>
                     {page.name}
-                  
-                </Button>
+                  </Button>
                 </Link>
-              
-            )}
-            )}
-            
-            
+              );
+            })}
           </Box>
-          
-          
+
           <CartWidget />
-
-
         </Toolbar>
       </Container>
     </AppBar>
   );
-}
+};
 export default Navbar;
