@@ -1,75 +1,80 @@
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
+
+/* REACT */
+import React from "react";
 import { useState, useEffect } from "react";
 
+/* COMPONENTS */
+import Spinner from "../Spinner/Spinner";
 
+/* MATERIAL UI */
+import CircularProgress from "@mui/material/CircularProgress";
+import ProductCard from "../ProductCard/ProductCard";
+import Container from "@mui/material/Container";
+import { styled } from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Unstable_Grid2";
+import Box from "@mui/material/Box";
 
-import ProductCard from "../ProductCard/ProductCard"
-import Container from '@mui/material/Container';
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Unstable_Grid2';
-import { Link } from "react-router-dom";
-
+/* REACT-ROUTER-DOM */
+import { Link, useParams } from "react-router-dom";
 
 /* FIREBASE */
 import { db } from "../../firebase/firebaseConfig";
-import { collection, query, getDocs , where} from "firebase/firestore";
-
-
+import { collection, query, getDocs, where } from "firebase/firestore";
 
 /* THEME */
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? 'null' : '#fff',
+  backgroundColor: theme.palette.mode === "dark" ? "null" : "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(0),
-  textAlign: 'center',
-  color: theme.palette.text.secondary
+  textAlign: "center",
+  color: theme.palette.text.secondary,
 }));
 
-
-
-
 const ItemList = () => {
+  /* FIREBASE GET */
+  const [games, setGames] = useState([]);
 
-/* FIREBASE TRAER */
-  const [games, setGames] = useState([])
-
-  const q = query(collection(db, "games"))
+  const { genre } = useParams();
 
   useEffect(() => {
-    const getGames = async() => {
+    const getGames = async () => {
+      const q = genre
+        ? query(collection(db, "games"), where("genre", "==", genre))
+        : query(collection(db, "games"));
+
       const querySnapshot = await getDocs(q);
-      const docs = []
+      const docs = [];
       querySnapshot.forEach((doc) => {
-        docs.push({...doc.data(), id: doc.id})
+        docs.push({ ...doc.data(), id: doc.id });
       });
 
-      setGames(docs)
-    }
-    getGames()
-  }, [])
-
+      setGames(docs);
+    };
+    getGames();
+  }, [genre]);
 
   return (
-
-
-      <Container>
-        <Grid container spacing={2}> 
+    <Container>
+      {games.length < 1 ? (
+        <Spinner />
+      ) : (
+        <Grid container spacing={2}>
           {games.map((game) => (
             <Grid key={game.id} xs={3}>
-              <Link to={`/item/${game.id}`}
-                style={{textDecoration: "none"}}
-              >
-                <Item key={game.id}> 
-                  <ProductCard game={game} /> 
+              <Link to={`/item/${game.id}`} style={{ textDecoration: "none" }}>
+                <Item key={game.id}>
+                  <ProductCard game={game} />
                 </Item>
-              </Link> 
+              </Link>
             </Grid>
           ))}
         </Grid>
-      </Container>
+      )}
+    </Container>
+  );
+};
 
-  )
-}
-
-export default ItemList
+export default ItemList;

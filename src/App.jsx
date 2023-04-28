@@ -20,6 +20,7 @@ import Item from "./pages/Item/item"
 
 
 
+
 /* DARK THEME */
 const darkTheme = createTheme({
   palette: {
@@ -43,6 +44,7 @@ const App = () => {
               <Routes> 
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/generos/:genre" element={<Home />} />
                 <Route path="/item/:id" element={<Item />} />
               </Routes>
 

@@ -38,10 +38,6 @@ const Navbar = () => {
     
   const pages = [
     {
-      route:'/', 
-      name:'Catálogo'
-    },
-    {
       route:'/about', 
       name:'Acerca de'
     }
@@ -133,6 +129,7 @@ const Navbar = () => {
             STEAM-ARG
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <CategoryMenu/>
             {pages.map((page) => {
               return(
                 <Link to={page.route} key={page.route} style={{textDecoration: "none"}}>
@@ -149,7 +146,7 @@ const Navbar = () => {
               
             )}
             )}
-            <CategoryMenu/>
+            
             
           </Box>
           

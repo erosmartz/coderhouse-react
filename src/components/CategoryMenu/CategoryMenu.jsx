@@ -36,22 +36,17 @@ const CategoryMenu = () => {
         docs.push({ ...doc.data(), id: doc.id });
       });
 
-
       const uniqueGenres = docs.reduce((acc, game) => {
         if (!acc.includes(game.genre)) {
           acc.push(game.genre);
         }
         return acc;
       }, []);
-      
 
       setGames(uniqueGenres);
     };
     getGames();
   }, []);
-
-
-
 
   return (
     <div>
@@ -62,7 +57,7 @@ const CategoryMenu = () => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
         sx={{ my: 2, color: "white", display: "block" }}>
-        Géneros
+        Catálogo
       </Button>
       <Menu
         id="basic-menu"
@@ -72,21 +67,26 @@ const CategoryMenu = () => {
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}>
-
+        <Link
+          to={"/"}
+          style={{ textDecoration: "none", color: "white" }}
+          key={"/"}>
+          <MenuItem onClick={handleClose}>Todos</MenuItem>
+        </Link>
 
         {games.map((genre) => {
           return (
             <Link
-              to={`/generos/${genre.toLowerCase()}`}
+              to={`/generos/${genre/* .toLowerCase() */}`}
               style={{ textDecoration: "none", color: "white" }}
               key={genre}>
-              <MenuItem>{`${genre}`}</MenuItem>
+              <MenuItem onClick={handleClose}>{`${genre}`}</MenuItem>
             </Link>
           );
         })}
       </Menu>
     </div>
   );
-}
+};
 
 export default CategoryMenu;
