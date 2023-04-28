@@ -51,9 +51,9 @@ const ItemList = () => {
 
 
   return (
-    <Container>
 
-      <Container className="grid">
+
+      <Container>
         <Grid container spacing={2}> 
           {games.map((game) => (
             <Grid key={game.id} xs={3}>
@@ -68,7 +68,7 @@ const ItemList = () => {
           ))}
         </Grid>
       </Container>
-    </Container>
+
   )
 }
 

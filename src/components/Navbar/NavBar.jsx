@@ -19,7 +19,7 @@ import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 
 /* PROJECT */
 import CartWidget from "../CartWidget/CartWidget"
-
+import CategoryMenu from "../CategoryMenu/CategoryMenu"
 
 
 
@@ -149,6 +149,8 @@ const Navbar = () => {
               
             )}
             )}
+            <CategoryMenu/>
+            
           </Box>
           
           

@@ -1,12 +1,12 @@
 import React from 'react'
-import Details from '../../components/Details/Details'
+import ItemDetails from '../../components/ItemDetails/ItemDetails'
 import Container from '@mui/material/Container';
 
 const Item = () => {
   return (
-    <Container sx={{width:'600px'}}>
-      <Details />
-    </Container>
+    
+      <ItemDetails />
+    
   )
 }
 
