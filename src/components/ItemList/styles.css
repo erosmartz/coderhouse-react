@@ -1,0 +1,7 @@
+.grid {
+    margin-top:40px;
+    display:grid;
+    justify-content:center;
+    gap: 2vw;
+    grid-template-columns: 20% 20% 20% 20%;
+}
