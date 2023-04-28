@@ -105,6 +105,7 @@ const Navbar = () => {
                   <MenuItem key={page.route} onClick={handleCloseNavMenu}>
                     <Link to={page.route} style={{textDecoration: "none"}}>
                       <Typography textAlign="center">{page.name}</Typography>
+                      
                     </Link>
                   </MenuItem>
                   )
@@ -134,7 +135,7 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => {
               return(
-                <Link to={page.route} key={page.route}>
+                <Link to={page.route} key={page.route} style={{textDecoration: "none"}}>
                 <Button
                 
                 onClick={handleCloseNavMenu}

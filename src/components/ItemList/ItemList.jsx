@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import "./styles.css"
+
 
 
 import ProductCard from "../ProductCard/ProductCard"
@@ -41,8 +41,6 @@ const ItemList = () => {
       const querySnapshot = await getDocs(q);
       const docs = []
       querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        /* console.log(doc.id, " => ", doc.data()); */
         docs.push({...doc.data(), id: doc.id})
       });
 
@@ -57,12 +55,12 @@ const ItemList = () => {
 
       <Container className="grid">
         <Grid container spacing={2}> 
-          {games.map((game, i) => (
-            <Grid key={i} xs={3}>
-              <Link to={`/item/${i}`}
+          {games.map((game) => (
+            <Grid key={game.id} xs={3}>
+              <Link to={`/item/${game.id}`}
                 style={{textDecoration: "none"}}
               >
-                <Item key={i}> 
+                <Item key={game.id}> 
                   <ProductCard game={game} /> 
                 </Item>
               </Link> 

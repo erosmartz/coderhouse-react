@@ -8,13 +8,13 @@ const CartWidget = () => {
   return (
     <div>
       
-      <MenuItem>
+      
         <IconButton size="large" aria-label="show the cart" color="inherit">
           <Badge badgeContent={4} color="error">
             <ShoppingCartIcon />
           </Badge>
         </IconButton>
-        </MenuItem>
+        
 
     </div>
   )
