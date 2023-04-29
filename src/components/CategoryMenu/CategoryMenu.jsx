@@ -39,6 +39,7 @@ const CategoryMenu = () => {
         docs.push({ ...doc.data(), id: doc.id });
       });
 
+
       const uniqueGenres = docs.reduce((acc, game) => {
         if (!acc.includes(game.genre)) {
           acc.push(game.genre);

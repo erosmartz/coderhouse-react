@@ -43,6 +43,7 @@ const ItemList = () => {
 
       const querySnapshot = await getDocs(q);
       const docs = [];
+      
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id });
       });

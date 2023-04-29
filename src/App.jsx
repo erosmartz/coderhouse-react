@@ -15,7 +15,7 @@ import Footer from "./components/Footer/footer"
 import Home from "./pages/Home/home"
 import About from "./pages/About/about"
 import Item from "./pages/Item/item"
-import Shop from "./pages/Shop/shop"
+import Shop from "./pages/Shop/Shop"
 
 
 
