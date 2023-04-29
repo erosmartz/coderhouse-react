@@ -1,9 +1,21 @@
 /* eslint-disable no-unused-vars */
-import { collection, addDoc } from "firebase/firestore";
+/* REACT */
+import { useState } from 'react';
+
+/* MUI */
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { Formik, Form } from "formik";
 
+/* YUP */
 import * as yup from "yup";
+
+/* FIREBASE */
+import { db } from "../../firebase/firebaseConfig";
+import { collection, addDoc } from "firebase/firestore";
+
+
+/* COMPONENTS */
+import ShopMsg from "../ShopMsg/ShopMsg"
 
 const formSchema = yup.object({
   name: yup
@@ -22,12 +34,22 @@ const formSchema = yup.object({
     .required("Campo requerido."),
 });
 
-const submitHandle = (values, resetForm) => {
-  console.log(values);
-  resetForm();
-};
-
 const ShopForm = () => {
+
+    const [purchaseID, setPurchaseID] = useState("");
+
+
+  const submitHandle = async (values, resetForm) => {
+
+    const docRef = await addDoc(collection(db, "purchases"), {
+      values,
+    });
+
+    resetForm();
+
+    setPurchaseID(docRef.id)
+  };
+
   return (
     <Box>
       <Formik
@@ -99,6 +121,8 @@ const ShopForm = () => {
           </form>
         )}
       </Formik>
+
+      {purchaseID.length ? <ShopMsg purchaseID={purchaseID}/> : null}
     </Box>
   );
 };
