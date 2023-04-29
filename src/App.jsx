@@ -15,6 +15,8 @@ import Footer from "./components/Footer/footer"
 import Home from "./pages/Home/home"
 import About from "./pages/About/about"
 import Item from "./pages/Item/item"
+import Shop from "./pages/Shop/shop"
+
 
 
 
@@ -46,6 +48,7 @@ const App = () => {
                 <Route path="/about" element={<About />} />
                 <Route path="/generos/:genre" element={<Home />} />
                 <Route path="/item/:id" element={<Item />} />
+                <Route path="/shop" element={<Shop />} />
               </Routes>
 
               <Footer />

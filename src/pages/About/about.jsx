@@ -1,4 +1,3 @@
-import React from 'react'
 import AboutCard from '../../components/AboutCard/AboutCard'
 import Container from '@mui/material/Container';
 

@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
+
 /* REACT */
-import * as React from 'react';
 import { useState, useEffect } from "react";
 
 /* REACT ROUTER DOM */
@@ -9,7 +8,6 @@ import { useParams } from 'react-router-dom';
 /* Material UI */
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';

@@ -1,18 +1,21 @@
-/* eslint-disable no-unused-vars */
-import * as React from 'react';
 
-import { Link } from "react-router-dom"
-
+import * as React from "react";
 import { useState, useEffect } from "react";
 
+import { Link } from "react-router-dom";
 
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 /* FIREBASE */
 import { db } from "../../firebase/firebaseConfig";
-import { collection, query, getDocs , where, documentId} from "firebase/firestore";
+import {
+  collection,
+  query,
+  getDocs,
+} from "firebase/firestore";
 
 const CategoryMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -77,7 +80,7 @@ const CategoryMenu = () => {
         {games.map((genre) => {
           return (
             <Link
-              to={`/generos/${genre/* .toLowerCase() */}`}
+              to={`/generos/${genre /* .toLowerCase() */}`}
               style={{ textDecoration: "none", color: "white" }}
               key={genre}>
               <MenuItem onClick={handleClose}>{`${genre}`}</MenuItem>

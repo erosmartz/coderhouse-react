@@ -1,21 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-unused-vars */
 
 /* REACT */
-import React from "react";
 import { useState, useEffect } from "react";
 
 /* COMPONENTS */
 import Spinner from "../Spinner/Spinner";
 
 /* MATERIAL UI */
-import CircularProgress from "@mui/material/CircularProgress";
 import ProductCard from "../ProductCard/ProductCard";
 import Container from "@mui/material/Container";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
-import Box from "@mui/material/Box";
 
 /* REACT-ROUTER-DOM */
 import { Link, useParams } from "react-router-dom";

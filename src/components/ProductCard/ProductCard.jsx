@@ -1,4 +1,4 @@
-import * as React from 'react';
+/* eslint-disable react/prop-types */
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -29,12 +29,10 @@ const ProductCard = ({game}) => {
       <Button size="large"color='primary'>
           ⭐{game.rating}
       </Button>  
-      <Button 
-        variant='outlined' 
-        size="large"
-        color='success'>
+      <Typography 
+        variant="subtitle1" color="text.secondary" sx={{mr: '10px', color:'darkseagreen'}}>
           ${game.price}
-      </Button>
+      </Typography>
       </CardActions>
     </Card>
   );
