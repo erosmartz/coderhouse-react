@@ -5,7 +5,7 @@ import ShopCartListTable from "./ShopCartListTable";
 
 const ShopCartList = () => {
 
-  const {cart} = useContext(CartContext);
+  const context = useContext(CartContext);
 
   return (
     <Container sx={{mt:4, mb:4}}>
@@ -16,7 +16,7 @@ const ShopCartList = () => {
         Carrito de compras
       </Typography>
 
-      <ShopCartListTable cart={cart}/>
+      <ShopCartListTable cart={context.cart} setCart={context.setCart}/>
     </Container>
   )
 }
