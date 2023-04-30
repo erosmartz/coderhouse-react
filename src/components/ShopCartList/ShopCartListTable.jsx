@@ -28,19 +28,20 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(name, quantity, price, totalPrice) {
-  return { name, quantity, price, totalPrice};
-}
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
 const ShopCartListTable = ({cart}) => {
+
+  const calculateTotalPrice = () => {
+    return cart.reduce((total, item) => {
+      return total + (item.price * item.quantity);
+    }, 0);
+
+    
+  }
+
+  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -49,7 +50,6 @@ const ShopCartListTable = ({cart}) => {
             <StyledTableCell>Juego</StyledTableCell>
             <StyledTableCell align="right">Cantidad</StyledTableCell>
             <StyledTableCell align="right">Precio</StyledTableCell>
-            <StyledTableCell align="right">Total</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -59,11 +59,18 @@ const ShopCartListTable = ({cart}) => {
                 {item.name}
               </StyledTableCell>
               <StyledTableCell align="right">{item.quantity}</StyledTableCell>
-              <StyledTableCell align="right">{item.price}</StyledTableCell>
-              <StyledTableCell align="right">{item.totalPrice}</StyledTableCell>
+              <StyledTableCell align="right">{`$ ${item.price}`}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
+
+        <TableHead>
+          <TableRow>
+            <StyledTableCell>Subtotal:</StyledTableCell>
+            <StyledTableCell align="right">{totalQuantity}</StyledTableCell>
+            <StyledTableCell align="right">{`$ ${calculateTotalPrice()}`}</StyledTableCell>
+          </TableRow>
+        </TableHead>
       </Table>
     </TableContainer>
   );
