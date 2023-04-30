@@ -52,6 +52,12 @@ const ShopForm = () => {
 
   return (
     <Box>
+      <Typography
+        align="center"
+        variant="button"
+        sx={{ fontSize: "30px", display: "flex", justifyContent: "center",mt:2,mb:5 }}>
+        Ingresá tus datos
+      </Typography>
       <Formik
         initialValues={{ name: "", lastName: "", email: "" }}
         onSubmit={(values, { resetForm }) => submitHandle(values, resetForm)}

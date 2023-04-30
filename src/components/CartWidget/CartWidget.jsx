@@ -1,5 +1,3 @@
-
-
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Badge from "@mui/material/Badge";
 import IconButton from "@mui/material/IconButton";
@@ -12,11 +10,13 @@ const CartWidget = () => {
    
   const {cart} = useContext(CartContext);
 
+  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
     <div>
       <Link to="/shop" key="/shop" >
         <IconButton size="large" aria-label="show the cart" color="white">
-          <Badge badgeContent={cart.length} color="error">
+          <Badge badgeContent={totalQuantity} color="error">
             <ShoppingCartIcon />
           </Badge>
         </IconButton>

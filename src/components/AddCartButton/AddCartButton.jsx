@@ -6,7 +6,22 @@ const AddCartButton = ({ item }) => {
   const context = useContext(CartContext);
 
   const addToCart = (item, cart, setCart) => {
-    setCart([...cart, item]);
+    const { name, price } = item;
+    const newItem = { name, price, quantity: 1 };
+    const existingItem = cart.find((item) => item.name === name);
+    if (existingItem) {
+      const updatedItem = {
+        ...existingItem,
+        quantity: existingItem.quantity + 1,
+      };
+      const updatedCart = cart.map((item) =>
+        item.name === name ? updatedItem : item
+      );
+
+      setCart(updatedCart);
+    } else {
+      setCart([...cart, newItem]);
+    }
   };
 
   return (
