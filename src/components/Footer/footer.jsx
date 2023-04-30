@@ -8,6 +8,7 @@ const styles = {
     top: "auto",
     bottom: 0,
     padding: 1,
+    paddingTop: 0 
   },
 };
 

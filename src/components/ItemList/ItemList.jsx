@@ -54,7 +54,7 @@ const ItemList = () => {
   }, [genre]);
 
   return (
-    <Container>
+    <Container style={{marginBottom:'100px'}}>
       {games.length < 1 ? (
         <Spinner />
       ) : (
