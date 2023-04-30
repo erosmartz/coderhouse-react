@@ -2,6 +2,8 @@
 /* REACT */
 import { useState, useEffect } from "react";
 
+import  AddCartButton  from "../AddCartButton/AddCartButton";
+
 /* REACT ROUTER DOM */
 import { useParams } from "react-router-dom";
 
@@ -16,7 +18,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import Divider from '@mui/material/Divider';
+import Divider from "@mui/material/Divider";
 
 /* FIREBASE */
 import { db } from "../../firebase/firebaseConfig";
@@ -27,6 +29,7 @@ import {
   where,
   documentId,
 } from "firebase/firestore";
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "null" : "#fff",
@@ -79,17 +82,21 @@ const ItemDetails = () => {
                 <Typography
                   component="div"
                   variant="h4"
-                  sx={{ textTransform: "uppercase", mb:2 }}>
+                  sx={{ textTransform: "uppercase", mb: 2 }}>
                   {game.name}
                 </Typography>
                 <Divider />
-                <Typography variant="h5" color="text.secondary" component="div" sx={{mt:2, mb:2}}>
+                <Typography
+                  variant="h5"
+                  color="text.secondary"
+                  component="div"
+                  sx={{ mt: 2, mb: 2 }}>
                   {`Género: ${game.genre}`}
                 </Typography>
                 <Divider />
                 <Typography
                   variant="h6"
-                  sx={{mt:2, mb:2}}
+                  sx={{ mt: 2, mb: 2 }}
                   color="text.secondary"
                   component="div">
                   {`Rating: ⭐${game.rating}`}
@@ -107,7 +114,7 @@ const ItemDetails = () => {
                 <Typography variant="h6" color="text.secondary" component="div">
                   {`Precio: $${game.price}`}
                 </Typography>
-                <Button variant="outlined" color="success" sx={{mt:5, fontSize:'20px'}}>Agregar al Carrito</Button>
+                <AddCartButton item={game}/>
               </Box>
             </Box>
           </Item>

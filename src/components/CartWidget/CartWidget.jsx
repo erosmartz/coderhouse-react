@@ -3,15 +3,20 @@
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Badge from "@mui/material/Badge";
 import IconButton from "@mui/material/IconButton";
+import { useContext } from "react";
 
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
 const CartWidget = () => {
+   
+  const {cart} = useContext(CartContext);
+
   return (
     <div>
       <Link to="/shop" key="/shop" >
         <IconButton size="large" aria-label="show the cart" color="white">
-          <Badge badgeContent={4} color="error">
+          <Badge badgeContent={cart.length} color="error">
             <ShoppingCartIcon />
           </Badge>
         </IconButton>
