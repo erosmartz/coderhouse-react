@@ -32,6 +32,10 @@ const formSchema = yup.object({
     .string()
     .email("Ingrese un mail correcto")
     .required("Campo requerido."),
+    emailConfirm: yup
+    .string()
+    .oneOf([yup.ref('email'), null], 'Los emails no coinciden')
+    .required('Campo requerido')
 });
 
 const ShopForm = () => {
@@ -59,7 +63,7 @@ const ShopForm = () => {
         Ingresá tus datos
       </Typography>
       <Formik
-        initialValues={{ name: "", lastName: "", email: "" }}
+        initialValues={{ name: "", lastName: "", email: "", confirmEmail: "" }}
         onSubmit={(values, { resetForm }) => submitHandle(values, resetForm)}
         validationSchema={formSchema}>
         {({
@@ -114,6 +118,23 @@ const ShopForm = () => {
                   marginBottom: "12px",
                 }}>
                 {errors.email}
+              </span>
+            )}
+            <TextField
+              name="emailConfirm"
+              value={values.emailConfirm}
+              onChange={handleChange}
+              sx={{ mb: "8px" }}
+              placeholder="Escribir Email de vuelta"
+            />
+            {errors.emailConfirm && (
+              <span
+                style={{
+                  color: "red",
+                  fontStyle: "italic",
+                  marginBottom: "12px",
+                }}>
+                {errors.emailConfirm}
               </span>
             )}
             <Button
