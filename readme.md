@@ -1,7 +1,7 @@
 # steam-arg : Proyecto Final de React
 
 Hola! Este es el repo para la entrega final de mi proyecto de React para Coderhouse.
-Creé la App mockeando un eCommerce para juegos de Steam *(seguro te preguntás: pero Steam ya vende en $ ARS, no? Tenés razón, pero bueno, quería hacer algo que me guste)*.
+Creé la App haciendo un mock de tienda para juegos de Steam *(seguro te preguntás: pero Steam ya vende en $ ARS, no? Tenés razón, pero bueno, quería hacer algo que me guste)*.
 
 ## Librerias y Herramientas utilizadas
  
@@ -28,7 +28,7 @@ Creé la App mockeando un eCommerce para juegos de Steam *(seguro te preguntás:
 ## Árbol de Componentes
 
  **Home:** 
- - *ItemList:* Renderiza todos los juegos dinámicamente`ProductCard`, iterando un array basado en datos de Firebase.
+ - *ItemList:* Renderiza todos los juegos dinámicamente con `ProductCard`, iterando un array basado en datos de Firebase.
  - *ProductCard:* Recibe props de ItemList para renderizar una Card con los datos del juego.
  - *Spinner:* Se renderiza cuando la operacion asíncrona de `ItemList` todavía esta siendo procesada.
 
