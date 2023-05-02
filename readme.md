@@ -28,7 +28,7 @@ Creé la App mockeando un eCommerce para juegos de Steam *(seguro te preguntás:
 ## Árbol de Componentes
 
  **Home:** 
- - *ItemList:* Renderiza todos los juegos dinámicamente`ProductCard`, iterando un array basado en datos de Firebase.
+ - *ItemList:* Renderiza todos los juegos dinámicamente con `ProductCard`, iterando un array basado en datos de Firebase.
  - *ProductCard:* Recibe props de ItemList para renderizar una Card con los datos del juego.
  - *Spinner:* Se renderiza cuando la operacion asíncrona de `ItemList` todavía esta siendo procesada.
 
