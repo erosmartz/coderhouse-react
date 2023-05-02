@@ -11,6 +11,7 @@ Creé la App haciendo un mock de tienda para juegos de Steam *(seguro te pregunt
  - MUI
  - Formik
  - Yup
+ - Context API (parte de React)
 
 ## Vistas
 
@@ -18,7 +19,7 @@ Creé la App haciendo un mock de tienda para juegos de Steam *(seguro te pregunt
 
  - **Home:** Es el landing page. Muestra el catálogo entero de juegos. Se
    puede filtrar por categoría *(genero)* con el botón *"Categorías"* en el
-   Navbar.
+   Navbar. Opté por un approach diferente a la navegación de categorías - Utilize Context API + un par de funciones para mostrar y renderizar dinámicamente las categorias (géneros de juego) a partir de los datos de Firebase.
  - **Item:** Vista de detalle del producto que fue clickeado. Contiene botón *"Agregar al Carrito"*.
  - **Acerca de:** Datos generales del creador.
  - **Shop:** Esta vista está compuesta por una tabla *(el carrito de compras)*
