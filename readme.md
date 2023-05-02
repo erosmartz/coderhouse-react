@@ -1,7 +1,7 @@
 # steam-arg : Proyecto Final de React
 
 Hola! Este es el repo para la entrega final de mi proyecto de React para Coderhouse.
-Creé la App mockeando un eCommerce para juegos de Steam *(seguro te preguntás: pero Steam ya vende en $ ARS, no? Tenés razón, pero bueno, quería hacer algo que me guste)*.
+Creé la App haciendo un mock de tienda para juegos de Steam *(seguro te preguntás: pero Steam ya vende en $ ARS, no? Tenés razón, pero bueno, quería hacer algo que me guste)*.
 
 ## Librerias y Herramientas utilizadas
  
