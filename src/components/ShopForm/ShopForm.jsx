@@ -38,7 +38,7 @@ const formSchema = yup.object({
     .required('Campo requerido')
 });
 
-const ShopForm = () => {
+const ShopForm = ({cart}) => {
 
     const [purchaseID, setPurchaseID] = useState("");
 
@@ -47,6 +47,7 @@ const ShopForm = () => {
 
     const docRef = await addDoc(collection(db, "purchases"), {
       values,
+      cart,
     });
 
     resetForm();
@@ -63,7 +64,7 @@ const ShopForm = () => {
         Ingresá tus datos
       </Typography>
       <Formik
-        initialValues={{ name: "", lastName: "", email: "", confirmEmail: "" }}
+        initialValues={{ name: "", lastName: "", email: "", emailConfirm: "" }}
         onSubmit={(values, { resetForm }) => submitHandle(values, resetForm)}
         validationSchema={formSchema}>
         {({

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import  AddCartButton  from "../AddCartButton/AddCartButton";
 
 /* REACT ROUTER DOM */
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 /* Material UI */
 import { styled } from "@mui/material/styles";
@@ -29,6 +29,7 @@ import {
   where,
   documentId,
 } from "firebase/firestore";
+import Spinner from "../Spinner/Spinner";
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -56,10 +57,32 @@ const ItemDetails = () => {
 
       const [grabGame] = docs;
 
-      setGame(grabGame);
+      
+
+      setGame(grabGame || null);
     };
     getGame();
   }, [id]);
+
+
+
+
+  if (!game) {
+    return (
+      <Container>
+          <Box>
+            <Typography variant="h4" component="div" align='center' sx={{display:'flex', flexDirection:'column'}}>
+              Whoops! Este juego no existe! <br />
+              <Link to='/'> <Button style={{fontSize:'20px',textDecoration:'none', color:'orange', }}>  Clickeá acá para ver nuestro catálogo. </Button></Link>
+            </Typography>
+          </Box>
+        </Container>
+    );
+  }
+
+  else if (game.name === undefined && game.price === undefined) {
+    return ( <Spinner style={{marginBottom:'100px'}}/>);
+  }
 
   return (
     <Container maxWidth="md">

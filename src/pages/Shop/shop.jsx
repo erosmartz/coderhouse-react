@@ -15,7 +15,7 @@ const Shop = () => {
           <ShopCartList />
           <Divider />
           <Container maxWidth="sm">
-            <ShopForm />
+            <ShopForm cart={cart}/>
           </Container>
         </Box>
       ) : (
