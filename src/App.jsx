@@ -15,7 +15,9 @@ import Home from "./pages/Home/home";
 import About from "./pages/About/about";
 import Item from "./pages/Item/item";
 import Shop from "./pages/Shop/Shop";
+import News from "./pages/News/news";
 import { CartProvider } from "./context/CartContext";
+
 
 /* DARK THEME */
 const darkTheme = createTheme({
@@ -40,6 +42,7 @@ const App = () => {
                   <Route path="/about" element={<About />} />
                   <Route path="/generos/:genre" element={<Home />} />
                   <Route path="/item/:id" element={<Item />} />
+                  <Route path="/news" element={<News />} />
                   <Route path="/shop" element={<Shop />} />
                 </Routes>
 

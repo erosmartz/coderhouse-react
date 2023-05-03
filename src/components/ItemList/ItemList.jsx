@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 /* COMPONENTS */
 import Spinner from "../Spinner/Spinner";
 
+import '../../App.css'
+
 /* MATERIAL UI */
 import ProductCard from "../ProductCard/ProductCard";
 import Container from "@mui/material/Container";
@@ -61,7 +63,7 @@ const ItemList = () => {
         <Grid container spacing={2}>
           {games.map((game) => (
             <Grid key={game.id} xs={3}>
-              <Link to={`/item/${game.id}`} style={{ textDecoration: "none" }}>
+              <Link to={`/item/${game.id}`} style={{ textDecoration: "none" }} className="hover">
                 <Item key={game.id}>
                   <ProductCard game={game} />
                 </Item>

@@ -34,6 +34,10 @@ const Navbar = () => {
 
   const pages = [
     {
+      route: "/news",
+      name: "Noticias",
+    },
+    {
       route: "/about",
       name: "Acerca de",
     },

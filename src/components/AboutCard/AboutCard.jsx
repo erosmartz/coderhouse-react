@@ -32,17 +32,17 @@ export default function MediaControlCard() {
           </Typography>
         </CardContent>
         <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
-          <Link to="https://linkedin.com">
+          <Link to="https://linkedin.com" target="_blank">
             <IconButton aria-label="linkedin">
               <LinkedInIcon sx={{ height: 38, width: 38 }} />
             </IconButton>
           </Link>
-          <Link to="https://github.com/erosmartz">
+          <Link to="https://github.com/erosmartz" target="_blank">
             <IconButton aria-label="github">
               <GitHubIcon sx={{ height: 38, width: 38 }} />
             </IconButton>
           </Link>
-          <Link to="https://twitter.com">
+          <Link to="https://twitter.com" target="_blank">
             <IconButton aria-label="twitter">
               <TwitterIcon sx={{ height: 38, width: 38 }} />
             </IconButton>
