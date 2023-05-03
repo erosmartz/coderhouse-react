@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 /* REACT */
 import { useState } from 'react';
@@ -38,7 +39,7 @@ const formSchema = yup.object({
     .required('Campo requerido')
 });
 
-const ShopForm = ({cart}) => {
+const ShopForm = ({cart, setCart}) => {
 
     const [purchaseID, setPurchaseID] = useState("");
 
@@ -51,8 +52,8 @@ const ShopForm = ({cart}) => {
     });
 
     resetForm();
-
-    setPurchaseID(docRef.id)
+    setPurchaseID(docRef.id);
+    setCart([]);
   };
 
   return (
