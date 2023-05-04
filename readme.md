@@ -6,11 +6,12 @@ Creé la App haciendo un mock de tienda para juegos de Steam *(seguro te pregunt
 
 ## Para correr el Proyecto, importante!!
  - Clonar el repo localmente
+ - Correr un `npm install`
  - Utilizar `npm run dev`
  
 Vite utiliza `dev`, no utiliza `start`!
 
-## Librerias y Herramientas utilizadas
+## Dependencias utilizadas
  
  - Vite
  - React-Router-Dom
