@@ -3,7 +3,15 @@
 Hola! Este es el repo para la entrega final de mi proyecto de React para Coderhouse.
 Creé la App haciendo un mock de tienda para juegos de Steam *(seguro te preguntás: pero Steam ya vende en $ ARS, no? Tenés razón, pero bueno, quería hacer algo que me guste)*.
 
-## Librerias y Herramientas utilizadas
+
+## Para correr el Proyecto, importante!!
+ - Clonar el repo localmente
+ - Correr un `npm install`
+ - Utilizar `npm run dev`
+ 
+Vite utiliza `dev`, no utiliza `start`!
+
+## Dependencias utilizadas
  
  - Vite
  - React-Router-Dom
@@ -12,6 +20,16 @@ Creé la App haciendo un mock de tienda para juegos de Steam *(seguro te pregunt
  - Formik
  - Yup
  - Context API (parte de React)
+
+## Componentes renombrados
+Algunos componentes tienen diferentes nombres a los estipulados en el doc:
+ - ItemListContainer: Está renombrado como ItemList y es renderizado por la pagina Home.
+ - ItemDetailContainer: Está renombrado como ItemDetail y es renderizado por la pagina Item.
+ - Description: La descripcion es parte de ItemDetail.
+ - AddItemButton: Está renombrado como AddCartButton.
+ - Checkout: Esta pagina está renombrada como Shop y tiene componentes hijos basados en la misma. (ShopCartList, ShopCartListTable, ShopForm, ShopMsg).
+
+
 
 ## Vistas
 
