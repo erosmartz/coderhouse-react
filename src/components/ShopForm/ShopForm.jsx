@@ -18,6 +18,7 @@ import { collection, addDoc } from "firebase/firestore";
 /* COMPONENTS */
 import ShopMsg from "../ShopMsg/ShopMsg"
 
+
 const formSchema = yup.object({
   name: yup
     .string()
@@ -50,6 +51,8 @@ const ShopForm = ({cart, setCart}) => {
       values,
       cart,
     });
+
+
 
     resetForm();
     setPurchaseID(docRef.id);

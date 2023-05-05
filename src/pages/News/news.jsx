@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Container } from "@mui/material";
 import NewsList from "../../components/NewsList/NewsList";
 
 /* API */
@@ -18,10 +18,9 @@ const gamingNews = await fetchGamingNews();
 const News = () => {
   const TopArticles = gamingNews.slice(0, 10);
   return (
-    <Box>
-      {" "}
+    <Container maxWidth="lg">
       <NewsList TopArticles={TopArticles} />
-    </Box>
+    </Container>
   );
 };
 

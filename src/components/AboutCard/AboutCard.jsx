@@ -51,7 +51,7 @@ export default function MediaControlCard() {
       </Box>
       <CardMedia
         component="img"
-        sx={{ width: 235 }}
+        sx={{ width: 250, borderRadius: "50%", overflow: "hidden" }}
         image="https://avatars.githubusercontent.com/u/107828862?v=4"
         alt="avatar"
       />

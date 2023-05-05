@@ -5,6 +5,7 @@ import { useContext } from "react";
 
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import { Typography } from "@mui/material";
 
 const CartWidget = () => {
    
@@ -14,9 +15,11 @@ const CartWidget = () => {
 
   return (
     <div>
-      <Link to="/shop" key="/shop" >
-        <IconButton size="large" aria-label="show the cart" color="white">
+      <Link to="/shop" key="/shop" style={{textDecoration:'none', color:'inherit'}}>
+        <IconButton size="large" aria-label="show the cart" color="white" sx={{fontSize:'100%', borderRadius:4}}>
+        <Typography variant="subtitle2">CARRITO &nbsp;</Typography>
           <Badge badgeContent={totalQuantity} color="error">
+            
             <ShoppingCartIcon />
           </Badge>
         </IconButton>

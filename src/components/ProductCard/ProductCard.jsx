@@ -9,6 +9,7 @@ const ProductCard = ({game}) => {
   return (
     <Card sx={{maxWidth: 375}}>
       <CardMedia
+        sx={{objectPosition: 'top'}}
         component="img"
         alt="https://www.iforium.com/wp-content/uploads/Placeholder-Image-400.png"
         height="350"
