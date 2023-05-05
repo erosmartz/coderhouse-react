@@ -29,6 +29,7 @@ import {
   documentId,
 } from "firebase/firestore";
 import Spinner from "../Spinner/Spinner";
+import AddCounter from "../AddCounter/AddCounter";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "null" : "#fff",
@@ -40,6 +41,12 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const ItemDetails = () => {
   let { id } = useParams();
+
+  const [counter, setCounter] = useState(0);
+
+  const handleCounterChange = (value) => {
+    setCounter(value);
+  };
 
   /* FIREBASE TRAER */
   const [game, setGame] = useState({});
@@ -71,15 +78,13 @@ const ItemDetails = () => {
             sx={{ display: "flex", flexDirection: "column" }}>
             Whoops! Este juego no existe! <br />
             <Link to="/">
-              {" "}
               <Button
                 style={{
                   fontSize: "20px",
                   textDecoration: "none",
                   color: "orange",
                 }}>
-                {" "}
-                Clickeá acá para ver nuestro catálogo.{" "}
+                Clickeá acá para ver nuestro catálogo.
               </Button>
             </Link>
           </Typography>
@@ -143,7 +148,8 @@ const ItemDetails = () => {
                 <Typography variant="h6" color="text.secondary" component="div">
                   {`Precio: $${game.price}`}
                 </Typography>
-                <AddCartButton item={game} />
+                <AddCartButton item={game} amount={counter} setCounter={setCounter}/>
+                <AddCounter counter={counter} setCounter={handleCounterChange}/>
               </Box>
             </Box>
           </Item>

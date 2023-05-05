@@ -1,18 +1,19 @@
-import React, { useContext } from "react";
+/* eslint-disable react/prop-types */
+import { useContext } from "react";
 import { Button } from "@mui/material";
 import { CartContext } from "../../context/CartContext";
 
-const AddCartButton = ({ item }) => {
+const AddCartButton = ({ item, amount, setCounter }) => {
   const context = useContext(CartContext);
 
   const addToCart = (item, cart, setCart) => {
     const { name, price } = item;
-    const newItem = { name, price, quantity: 1 };
+    const newItem = { name, price, quantity: amount };
     const existingItem = cart.find((item) => item.name === name);
     if (existingItem) {
       const updatedItem = {
         ...existingItem,
-        quantity: existingItem.quantity + 1,
+        quantity: existingItem.quantity + amount,
       };
       const updatedCart = cart.map((item) =>
         item.name === name ? updatedItem : item
@@ -24,15 +25,19 @@ const AddCartButton = ({ item }) => {
     }
   };
 
+  const handleAddToCart = () => {
+    addToCart(item, context.cart, context.setCart);
+    setCounter(0);
+  };
+
   return (
     <Button
-      onClick={() => {
-        addToCart(item, context.cart, context.setCart);
-      }}
+      disabled={amount === 0}
+      onClick={handleAddToCart}
       variant="outlined"
       color="success"
       sx={{ mt: 5, fontSize: "20px" }}>
-      Agregar al Carrito
+      Agregar al Carrito ({amount})
     </Button>
   );
 };
