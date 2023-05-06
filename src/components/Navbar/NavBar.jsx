@@ -118,6 +118,17 @@ const Navbar = () => {
               );
             })}
           </Box>
+          
+          <Link
+                  to="/tracking"
+                  key="/tracking"
+                  style={{ textDecoration: "none" }}>
+                  <Button
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: "white", display: "block" }}>
+                    Tracking
+                  </Button>
+                </Link>
 
           <CartWidget />
         </Toolbar>

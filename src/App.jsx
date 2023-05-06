@@ -16,6 +16,7 @@ import About from "./pages/About/about";
 import Item from "./pages/Item/item";
 import Shop from "./pages/Shop/Shop";
 import News from "./pages/News/news";
+import Tracking from "./pages/Tracking/tracking";
 import { CartProvider } from "./context/CartContext";
 
 
@@ -44,6 +45,7 @@ const App = () => {
                   <Route path="/item/:id" element={<Item />} />
                   <Route path="/news" element={<News />} />
                   <Route path="/shop" element={<Shop />} />
+                  <Route path="/tracking" element={<Tracking />} />
                 </Routes>
 
                 <Footer />
